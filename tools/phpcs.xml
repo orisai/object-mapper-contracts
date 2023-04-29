@@ -1,0 +1,51 @@
+<ruleset
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="./../vendor/squizlabs/php_codesniffer/phpcs.xsd">
+
+	<!-- Show only relevant part of path -->
+	<arg name="basepath" value="./.."/>
+
+	<!-- Configure cache -->
+	<arg name="cache" value="./../var/tools/PHP_CodeSniffer/cache.dat"/>
+
+	<!-- Import coding-standard -->
+	<rule ref="./../vendor/orisai/coding-standard/src/ruleset-7.4.xml"/>
+
+	<!-- Configure PSR-4 rule -->
+	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName">
+		<properties>
+			<property name="rootNamespaces" type="array">
+				<element key="src" value="Orisai\ObjectMapper"/>
+				<element key="tests" value="Tests\Orisai\ObjectMapper"/>
+			</property>
+		</properties>
+	</rule>
+
+	<!-- Codesniffer does not like PHP 8.2 yet -->
+	<rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+		<exclude-pattern>tests/Doubles/PhpVersionSpecific/ReadonlyClassVO.php</exclude-pattern>
+	</rule>
+
+	<!-- It is a constant name, not an operator -->
+	<rule ref="Squiz.Operators.ValidLogicalOperators.NotAllowed">
+		<exclude-pattern>src/Types/CompoundTypeOperator.php</exclude-pattern>
+	</rule>
+	<rule ref="Generic.PHP.LowerCaseKeyword.Found">
+		<exclude-pattern>src/Types/CompoundTypeOperator.php</exclude-pattern>
+	</rule>
+
+	<!-- Test-specific config -->
+	<rule ref="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint">
+		<exclude-pattern>tests/Doubles/PhpVersionSpecific/UntypedVO.php</exclude-pattern>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Classes.SuperfluousInterfaceNaming">
+		<exclude-pattern>tests/Doubles/Inheritance</exclude-pattern>
+	</rule>
+	<rule ref="SlevomatCodingStandard.Files.TypeNameMatchesFileName.NoMatchBetweenTypeNameAndFileName">
+		<exclude-pattern>tests/Doubles/Inheritance</exclude-pattern>
+	</rule>
+	<rule ref="PSR1.Classes.ClassDeclaration.MultipleClasses">
+		<exclude-pattern>tests/Doubles/Inheritance</exclude-pattern>
+	</rule>
+
+</ruleset>

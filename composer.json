@@ -1,0 +1,49 @@
+{
+	"name": "orisai/object-mapper-contracts",
+	"description": "Interface for orisai/object-mapper mapped objects",
+	"keywords": [
+		"abstractions",
+		"contracts",
+		"decoupling",
+		"interfaces",
+		"interoperability",
+		"orisai",
+		"standards"
+	],
+	"type": "library",
+	"license": "MPL-2.0",
+	"homepage": "https://github.com/orisai/object-mapper-contracts",
+	"authors": [
+		{
+			"name": "Marek Bartoš",
+			"homepage": "https://github.com/mabar"
+		}
+	],
+	"require": {
+		"php": ">=7.4.0 <8.3.0"
+	},
+	"require-dev": {
+		"orisai/coding-standard": "^3.0.0",
+		"phpstan/extension-installer": "^1.0.0",
+		"phpstan/phpstan": "^1.0.0",
+		"phpstan/phpstan-deprecation-rules": "^1.0.0",
+		"phpstan/phpstan-nette": "^1.0.0",
+		"phpstan/phpstan-phpunit": "^1.0.0",
+		"phpstan/phpstan-strict-rules": "^1.0.0",
+		"staabm/annotate-pull-request-from-checkstyle": "^1.7.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Orisai\\ObjectMapper\\": "src"
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"config": {
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
+		}
+	}
+}
